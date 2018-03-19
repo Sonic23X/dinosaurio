@@ -22,4 +22,15 @@ class User_model extends CI_Model{
     return null;
   }
 
+  public function GetPaginacion($numero_por_pagina)
+  {
+    return $this->db->get("users",$numero_por_pagina,$this->uri->segment(3));
+  }
+
+  public function Num_Users()
+  {
+      $numero = $this->db->query("SELECT count(*) as numero FROM users")->row()->numero;
+      return intval($numero);
+  }
+
 }
