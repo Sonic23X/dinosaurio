@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="<?=base_url()?>vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?=base_url()?>resources/css/custom.css" rel="stylesheet">
+    <link href="<?=base_url()?>resources/css/dino.css" rel="stylesheet">
     <link rel=icon href='<?=base_url()?>resources/img/logo-icon.png' sizes="32x32" type="image/png">
 
     <script type="text/javascript" src="<?= base_url() ?>vendor/components/jquery/jquery.min.js"></script>

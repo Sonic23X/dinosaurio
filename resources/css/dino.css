@@ -1,0 +1,22 @@
+body{
+  background-color: #E1FBB2;
+}
+.panel{
+  border-radius: 5px;
+  border-color: #465A60;
+  box-shadow: 0px 0.5px 0.5px 0.5px #4A3B3B;
+}
+.panel-info>.panel-heading{
+  background-color: #8CD898;
+}
+.btn-group .btn-info{
+  background-color: #4A3B3B;
+  border-color:#362d2d;
+  color: #eff0df;
+}
+.table{
+  border-radius: 5px;
+}
+.table>tbody> tr.info>th{
+  background-color: #C6A16B;
+}

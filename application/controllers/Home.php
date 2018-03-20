@@ -73,7 +73,7 @@ class Home extends CI_Controller{
         echo base_url('');
       }
       else
-        echo "Las contraseñas no coinciden, intentelo de nuev";
+        echo "Las contraseñas no coinciden, intentelo de nuevo";
     }
     else
         echo "El usuario no existe, intentelo de nuevo";
