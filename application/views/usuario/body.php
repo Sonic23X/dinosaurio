@@ -42,23 +42,23 @@
 
                       ?>
 
-                      <input type="hidden" value="<?php echo $fila->firstname ?>" id="nombres<?php echo $fila->user_id;?>">
-					            <input type="hidden" value="<?php echo $fila->lastname ?>" id="apellidos<?php echo $fila->user_id;?>">
-					            <input type="hidden" value="<?php echo $fila->user_name;?>" id="usuario<?php echo $fila->user_id;?>">
-					            <input type="hidden" value="<?php echo $fila->user_email;?>" id="email<?php echo $fila->user_id;?>">
+                      <input type="hidden" value="<?= $fila->firstname ?>" id="nombres<?= $fila->user_id;?>">
+					            <input type="hidden" value="<?= $fila->lastname ?>" id="apellidos<?= $fila->user_id;?>">
+					            <input type="hidden" value="<?= $fila->user_name;?>" id="usuario<?= $fila->user_id;?>">
+					            <input type="hidden" value="<?= $fila->user_email;?>" id="email<?= $fila->user_id;?>">
 
                       <tr>
-                        <td><?php echo $fila->user_id ?></td>
-            						<td><?php echo $fila->firstname . " " . $fila->lastname; ?></td>
-            						<td ><?php echo $fila->user_name ?></td>
-            						<td ><?php echo $fila->user_email ?></td>
-            						<td><?php echo $fila->date_added;?></td>
+                        <td><?= $fila->user_id ?></td>
+            						<td><?= $fila->firstname . " " . $fila->lastname; ?></td>
+            						<td><?= $fila->user_name ?></td>
+            						<td><?= $fila->user_email ?></td>
+            						<td><?= $fila->date_added;?></td>
 
             					   <td >
                            <span class="pull-right">
-                             <a href="#" class='btn btn-default' title='Editar usuario' onclick="obtener_datos('<?php echo $fila->user_id;?>');" data-toggle="modal" data-target="#myModal2"><i class="glyphicon glyphicon-edit"></i></a>
-                             <a href="#" class='btn btn-default' title='Cambiar contraseña' onclick="get_user_id('<?php echo $fila->user_id;?>');" data-toggle="modal" data-target="#myModal3"><i class="glyphicon glyphicon-cog"></i></a>
-                             <a href="#" class='btn btn-default' title='Borrar usuario' onclick="eliminar('<? echo $fila->user_id; ?>')"><i class="glyphicon glyphicon-trash"></i> </a>
+                             <a href="#" class='btn btn-default' title='Editar usuario' onclick="obtener_datos('<?= $fila->user_id;?>');" data-toggle="modal" data-target="#myModal2"><i class="glyphicon glyphicon-edit"></i></a>
+                             <a href="#" class='btn btn-default' title='Cambiar contraseña' onclick="get_user_id('<?= $fila->user_id;?>');" data-toggle="modal" data-target="#myModal3"><i class="glyphicon glyphicon-cog"></i></a>
+                             <a href="#" class='btn btn-default' title='Borrar usuario' onclick="eliminar('<?= $fila->user_id; ?>')"><i class="glyphicon glyphicon-trash"></i> </a>
                            </span>
                          </td>
                       </tr>
@@ -79,7 +79,6 @@
               				</tr>
                       <?php
                         }
-
                       ?>
 
               </div><!-- Carga los datos ajax -->
