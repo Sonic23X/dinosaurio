@@ -20,3 +20,31 @@ body{
 .table>tbody> tr.info>th{
   background-color: #C6A16B;
 }
+.login{
+  background-color: #8CD898;
+  border-radius: 4px;
+  box-shadow: 0px 0.5px 0.5px 1px #4A3B3B;
+}
+.inputs{
+  background-color: #b19369;
+}
+.btn-base{
+  background-color: #C6A16B;
+  border-color:#ad8e5f;
+  box-shadow:  0px 0.5px 0.5px 1px #ad8e5f;
+  color: #090908;
+  width: auto;
+}
+.btn-base:hover{
+  background-color: #4A3B3B;
+  border-color: #3d3333;
+  color: #f4f5f1;
+  box-shadow:  0px 0.5px 0.5px 1px #3d3333;
+}
+.titulo{
+  background-color: #399892;
+  color: #ffffff;
+  text-shadow: -1px 1px 1px #f7f7f4;
+  border-radius: 0.7rem;
+  box-shadow: -2px 2px 2px #5cb3ad;
+}
