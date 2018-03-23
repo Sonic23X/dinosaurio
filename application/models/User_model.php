@@ -33,4 +33,59 @@ class User_model extends CI_Model{
       return intval($numero);
   }
 
+  public function Insert($datos = null)
+  {
+    if($datos != null)
+    {
+
+    }
+    return false;
+  }
+
+  public function Update($datos = null)
+  {
+    if($datos != null)
+    {
+      $id = $datos['id'];
+      $nombre = $datos['nombre'];
+      $apellidos = $datos['apellido'];
+      $usuario = $datos['usuario'];
+      $email = $datos['email'];
+
+      $SQL =  "UPDATE users SET firstname='".$nombre."', lastname='".$apellidos."', user_name='".$usuario.
+      "', user_email='".$email."' WHERE user_id=".$id."";
+
+      if($this->db->query($SQL))
+        return true;
+    }
+    return false;
+  }
+
+  public function ChagePass($datos = null)
+  {
+    if($datos != null)
+    {
+      $pass = $datos['pass'];
+      $id = $datos['id'];
+
+      $SQL = "UPDATE users SET user_password_hash= '". $pass ."' WHERE user_id = ". $id ."";
+
+      if($this->db->query($SQL))
+        return true;
+    }
+    return false;
+  }
+
+  public function Delete($id = null)
+  {
+    if($id != null)
+    {
+      $SQL = "DELETE FROM users WHERE user_id = $id";
+
+      if($this->db->query($SQL))
+        return true;
+    }
+    return false;
+  }
+
 }

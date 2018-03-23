@@ -44,4 +44,29 @@
 		</div>
 	  </div>
 	</div>
-	
+
+	<script>
+
+	$( "#editar_usuario" ).submit(function( event ) {
+
+		$.ajax({
+			 type: "POST",
+			 url: "http://localhost/dinosaurio/User/Update",
+			 data: "id=" + $('#mod_id'). val() +
+			 "&nombre=" + $('#firstname2').val() +
+			 "&apellido=" + $('#lastname2').val() +
+			 "&usuario=" + $('#user_name2').val() +
+			 "&email=" + $('#user_email2').val(),
+				beforeSend: function(objeto){
+				 $("#resultados_ajax2").html("Mensaje: Cargando...");
+				 },
+			 success: function(datos){
+			 $("#resultados_ajax2").html(datos);
+			 $('#actualizar_datos').attr("style", "display: none");
+			 }
+	 		});
+
+	  event.preventDefault();
+	})
+
+	</script>

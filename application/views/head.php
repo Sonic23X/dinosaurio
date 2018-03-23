@@ -17,17 +17,22 @@
       {
     ?>
     <link href="<?=base_url()?>resources/css/style.css" rel="stylesheet">
-    <script type="text/javascript" src="<?= base_url() ?>resources/js/login.js  "></script>
+    <script type="text/javascript" src="<?= base_url() ?>resources/js/login.js"></script>
     <?php
       }
       if($config)
       {
     ?>
-    <script type="text/javascript" src="<?= base_url() ?>resources/js/settings.js  "></script>
+    <script type="text/javascript" src="<?= base_url() ?>resources/js/settings.js"></script>
+    <?php
+      }
+      if($user)
+      {
+    ?>
+    <script type="text/javascript" src="<?= base_url() ?>resources/js/user.js"></script>
     <?php
       }
     ?>
-
     <title><?= $title ?></title>
   </head>
   <body>

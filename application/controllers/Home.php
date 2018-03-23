@@ -32,7 +32,7 @@ class Home extends CI_Controller{
       header("Location: ".base_url());
     else
     {
-      $data = array('title' => 'Configuración', 'login' => true, 'config' => true, 'fact' => false,
+      $data = array('title' => 'Iniciar Sesión', 'login' => true, 'config' => true, 'fact' => false,
       'cliente' => false, 'product' => false, 'user' => false);
       $this->load->view('head', $data);
       $this->load->view('login');

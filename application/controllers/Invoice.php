@@ -15,7 +15,7 @@ class Invoice extends CI_Controller{
       header("Location: ".base_url('Home/Login'));
     else
     {
-      $data = array('title' => 'Configuración', 'login' => false, 'config' => false, 'fact' => true,
+      $data = array('title' => 'Facturas', 'login' => false, 'config' => false, 'fact' => true,
       'cliente' => false, 'product' => false, 'user' => false);
       $this->load->view('head', $data);
       $this->load->view('navbar', $data);

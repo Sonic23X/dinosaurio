@@ -15,7 +15,7 @@ class Product extends CI_Controller{
       header("Location: ".base_url('Home/Login'));
     else
     {
-      $data = array('title' => 'Configuración', 'login' => false, 'config' => false, 'fact' => false,
+      $data = array('title' => 'Productos', 'login' => false, 'config' => false, 'fact' => false,
       'cliente' => false, 'product' => true, 'user' => false);
       $this->load->view('head', $data);
       $this->load->view('navbar', $data);

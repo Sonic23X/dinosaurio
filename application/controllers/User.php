@@ -6,6 +6,7 @@ class User extends CI_Controller{
   public function __construct()
   {
     parent::__construct();
+    $this->load->library('encryption');
     $this->load->model('User_model');
   }
 
@@ -21,7 +22,7 @@ class User extends CI_Controller{
 
   public function Home()
   {
-    $data = array('title' => 'Configuración', 'login' => false, 'config' => false, 'fact' => false,
+    $data = array('title' => 'Usuarios', 'login' => false, 'config' => false, 'fact' => false,
     'cliente' => false, 'product' => false, 'user' => true);
     $this->load->view('head', $data);
     $this->load->view('navbar', $data);
@@ -63,6 +64,88 @@ class User extends CI_Controller{
     $this->load->view('usuario/modals/cambiar_password');
 
     $this->load->view('footer');
+  }
+
+  function Insert()
+  {
+
+  }
+
+  function Update()
+  {
+    $post = $this->input->post();
+    $bool = $this->User_model->Update($post);
+
+    if($bool)
+    {
+      $html = '<div class="alert alert-success alert-dismissible" role="alert">';
+			$html .= '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+			$html .= '<strong>Aviso!</strong> Datos actualizados exitosamente.';
+			$html .= '</div>';
+    }
+    else
+    {
+      $html = '<div class="alert alert-danger alert-dismissible" role="alert">';
+			$html .= '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+			$html .= '<strong>Error!</strong> Lo siento algo ha salido mal intenta nuevamente.';
+			$html .= '</div>';
+    }
+
+    echo $html;
+  }
+
+  function Pass()
+  {
+    $post = $this->input->post();
+
+    if($post['pass'] == $post['rpass'])
+    {
+      $data['pass'] = $this->encryption->encrypt($post['pass']);
+      $data['id'] = $post['id'];
+
+      $bool = $this->User_model->ChagePass($data);
+
+      if($bool)
+      {
+        $html = '<div class="alert alert-success alert-dismissible" role="alert">';
+  			$html .= '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+  			$html .= '<strong>Aviso!</strong> Datos eliminados exitosamente.';
+  			$html .= '</div>';
+      }
+    }
+    else
+    {
+      $html = '<div class="alert alert-danger alert-dismissible" role="alert">';
+			$html .= '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+			$html .= '<strong>Error!</strong> Lo siento algo ha salido mal intenta nuevamente.';
+			$html .= '</div>';
+    }
+
+    echo $html;
+  }
+
+  function Delete()
+  {
+    $post = $this->input->post();
+    $bool = $this->User_model->Delete($post['id']);
+
+    if($bool)
+    {
+      $html = '<div class="alert alert-success alert-dismissible" role="alert">';
+			$html .= '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+			$html .= '<strong>Aviso!</strong> Contraseña actualizada exitosamente.';
+			$html .= '</div>';
+    }
+    else
+    {
+      $html = '<div class="alert alert-danger alert-dismissible" role="alert">';
+			$html .= '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+			$html .= '<strong>Error!</strong> Lo siento algo ha salido mal intenta nuevamente.';
+			$html .= '</div>';
+    }
+
+    echo $html;
+
   }
 
 }

@@ -21,7 +21,7 @@ class Client extends CI_Controller{
 
   function Home()
   {
-    $data = array('title' => 'Configuración', 'login' => false, 'config' => false, 'fact' => false,
+    $data = array('title' => 'Clientes', 'login' => false, 'config' => false, 'fact' => false,
     'cliente' => true, 'product' => false, 'user' => false);
     $this->load->view('head', $data);
     $this->load->view('navbar', $data);
