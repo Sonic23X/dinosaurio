@@ -27,8 +27,8 @@ class Product extends CI_Controller{
     $this->load->view('navbar', $data);
 
     $config['base_url'] = base_url() . 'Product/Home';
-    $config['total_rows'] = $this->Product_model->Num_Clients();
-    $config['per_page'] = 5;
+    $config['total_rows'] = $this->Product_model->Num_Products();
+    $config['per_page'] = 9;
     $config['uri_segment'] = 3;
     $config['full_tag_open'] = '<ul class="pagination">';
     $config['full_tag_close'] = '</ul>';
@@ -58,8 +58,7 @@ class Product extends CI_Controller{
     $this->load->view('producto/body', $data);
 
     //modales
-    $this->load->view('producto/modals/editar_productos');
-    $this->load->view('producto/modals/registro_productos');
+
 
     $this->load->view('footer');
   }

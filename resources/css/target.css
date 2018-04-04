@@ -1,0 +1,97 @@
+section
+{
+  margin-left: 2%;
+  margin-top: 1%;
+  margin-right: 2%;
+  width: 20%;
+  padding-bottom: 40%;
+  background-color: rgb(213, 125, 133);
+}
+
+aside
+{
+  vertical-align: top;
+  width: 75%;
+}
+
+section, aside
+{
+ display: inline-block;
+}
+
+.target
+{
+  margin-top: 2%;
+  margin-right: 3%;
+  background-color: white;
+  width: 30%;
+}
+
+.target, .target
+{
+  display: inline-block;
+}
+
+.target, .target, .target
+{
+  display: inline-block;
+}
+
+.nom_pro
+{
+  color: black;
+  text-decoration: none;
+  font-size: 32px;
+  border-bottom-style: solid;
+  border-bottom-color: blue;
+}
+
+.nom_pro:hover
+{
+  color: black;
+  text-decoration: none;
+}
+
+.price
+{
+  margin-top:2%;
+}
+
+.details
+{
+  text-decoration: none;
+}
+
+.details:hover
+{
+  text-decoration: none;
+}
+
+.imagen
+{
+  width: 49%;
+  height: 200px;
+}
+
+.img
+{
+  margin-top: 25px;
+  width: 36px;
+  height: 36px;
+}
+
+.desc
+{
+  text-align: center;
+  width: 49%;
+}
+
+.imagen, .desc
+{
+  display:inline-block;
+}
+
+.prod
+{
+  width: 30px;
+}
