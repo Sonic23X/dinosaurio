@@ -123,9 +123,9 @@ class Settings extends CI_Controller{
 
   function UpdateImage()
   {
-    $config['upload_path']  = './resources/img';
+    $config['upload_path']  = './resources/img/logo';
     $config['allowed_types'] = 'gif|jpg|png|jpeg';
-    $config['max_size'] = 100;
+    $config['max_size'] = 1000;
 
     $this->load->library('upload', $config);
 
@@ -136,7 +136,7 @@ class Settings extends CI_Controller{
       $bool = $this->Settings_model->UpdateImage($data['upload_data']['file_name']);
       if($bool)
       {
-        echo base_url()."resources/img/".$data['upload_data']['file_name'];
+        echo base_url()."resources/img/logo/".$data['upload_data']['file_name'];
       }
     }
     else

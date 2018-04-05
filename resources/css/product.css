@@ -1,0 +1,16 @@
+
+#imagen_product
+{
+  width: 30%;
+}
+
+#detalles_product
+{
+  vertical-align: top;
+  width: 68%;
+}
+
+#imagen_product, #detalles_product
+{
+  display: inline-block;
+}

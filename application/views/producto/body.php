@@ -70,54 +70,62 @@
         <br>
       </fieldset>
 
+      <hr>
+      <center>
+        <span id="te">
+          Acciones
+        </span>
+      </center>
+      <br>
+      <a class="btn btn-success form-control" href="#nuevoProducto" data-toggle = 'modal'>Nuevo Producto</a>
+
     </section>
-
     <aside id="tarjetas">
-    <?php
+      <?php
 
-      if($productos == null)
-      {
-        ?>
-        <h2>No hay productos registrados</h2>
-        <?php
-      }
-      else
-      {
-        foreach ($productos->result() as $fila)
+        if($productos == null)
         {
-        ?>
+          ?>
+          <h2>No hay productos registrados</h2>
+          <?php
+        }
+        else
+        {
+          foreach ($productos->result() as $fila)
+          {
+          ?>
 
-        <div class="target">
+          <div class="target">
 
-          <div class="imagen">
+            <div class="imagen">
+              <center>
+                <img class="img" style="width: 120px; height: 120px;" src="<?= base_url() ?>/resources/img/producto/<?= $fila->img ?>" alt="Logo">
+              </center>
+            </div>
+
+            <div class="desc">
+              <a class="nom_pro" value="<?= $fila->id_producto ?>" href="#detales" data-toggle="modal"><?= $fila->nombre_producto  ?></a>
+              <br>
+              <span class="price" >Precio: $<?= $fila->precio_producto ?></span>
+              <br>
+            </div>
+
+          </div>
+
+          <?php
+            }
+          ?>
+          <br>
+
+          <div class="pagination">
             <center>
-              <img class="img" style="width: 120px; height: 120px;" src="<?= base_url() ?>/resources/img/producto/<?= $fila->img ?>" alt="Logo">
+              <?= $pagination ?>
             </center>
           </div>
 
-          <div class="desc">
-            <a class="nom_pro" href="#"><?= $fila->nombre_producto  ?></a>
-            <br>
-            <span class="price" >Precio: $<?= $fila->precio_producto ?></span>
-            <br>
-          </div>
-
-        </div>
-
         <?php
-          }
-        ?>
-        <br>
-
-        <div class="pagination">
-          <center>
-            <?= $pagination ?>
-          </center>
-        </div>
-
-      <?php
-      }
-    ?>
+        }
+      ?>
     </aside>
 
     <script type="text/javascript">
@@ -161,6 +169,31 @@
             type: 'post',
             success: function(response) {
               location.href = response;
+            }
+          });
+
+        });
+
+        $('.nom_pro').on('click', function(event) {
+          event.preventDefault();
+
+          var id = $(this).attr('value');
+
+          $.ajax({
+            url: '<?= base_url() ?>Product/Search_Id',
+            type: 'post',
+            data: 'id=' + id,
+            success: function(response)
+            {
+              var datos = JSON.parse(response)
+              console.log(datos);
+              $('#image_prod').attr('src', datos['imagen']);
+              $('#id').attr('value', id);
+              $('#estado option[value="'+ datos['estado'] +'"]').attr("selected", true);
+              $('#codigo').val(datos['codigo']);
+              $('#precio').val(datos['precio']);
+              $('#nombre').val(datos['nombre']);
+
             }
           });
 

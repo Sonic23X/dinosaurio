@@ -7,7 +7,6 @@
     <link href="<?=base_url()?>vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?=base_url()?>resources/css/custom.css" rel="stylesheet">
     <link href="<?=base_url()?>resources/css/dino.css" rel="stylesheet">
-    <link href="<?=base_url()?>resources/css/target.css" rel="stylesheet">
     <link rel=icon href='<?=base_url()?>resources/img/logo-icon.png' sizes="32x32" type="image/png">
 
     <script type="text/javascript" src="<?= base_url() ?>vendor/components/jquery/jquery.min.js"></script>
@@ -32,6 +31,13 @@
     ?>
     <script type="text/javascript" src="<?= base_url() ?>resources/js/user.js"></script>
     <?php
+      }
+      if($product)
+      {
+        ?>
+      <link href="<?=base_url()?>resources/css/target.css" rel="stylesheet">
+      <link href="<?=base_url()?>resources/css/product.css" rel="stylesheet">
+        <?php
       }
     ?>
     <title><?= $title ?></title>

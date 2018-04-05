@@ -38,4 +38,55 @@ class Product_model extends CI_Model{
     return $this->db->get("products",$numero_por_pagina,$this->uri->segment(3));
   }
 
+  public function Search_Id($value = null)
+  {
+    if($value != null)
+    {
+      $SQL = "SELECT * FROM products WHERE id_producto = ". $value ."";
+      $return = $this->db->query($SQL);
+      if($return->num_rows() > 0)
+        return $return->row();
+    }
+    return null;
+  }
+
+  public function Insert($value = null)
+  {
+    if($value != null)
+    {
+      $SQL = "INSERT INTO products(codigo_producto, nombre_producto, status_producto, date_added, precio_producto, img) " .
+                   "VALUES('". $value['codigo']  ."', '". $value['nombre']  ."', ". $value['estado']  .", curdate(), ". $value['precio']  .", '1.jpg')";
+      if($this->db->query($SQL))
+        return true;
+    }
+    return false;
+  }
+
+  public function Update($value = null)
+  {
+    if($value != null)
+    {
+
+    }
+  }
+
+  public function UpdateImage($value = null)
+  {
+    if($value != null)
+    {
+      $SQL = "UPDATE products SET img='". $value['nombre']  ."' WHERE id_producto = " . $value['id'] ."";
+      if($this->db->query($SQL))
+        return true;
+    }
+    return false;
+  }
+
+  public function Delete($value = null)
+  {
+    if($value != null)
+    {
+
+    }
+  }
+
 }

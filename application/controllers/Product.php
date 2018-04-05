@@ -123,7 +123,8 @@ class Product extends CI_Controller{
     $this->load->view('producto/body', $data);
 
     //modales
-
+    $this->load->view('producto/modals/details_modal');
+    $this->load->view('producto/modals/registro_productos');
 
     $this->load->view('footer');
   }
@@ -173,6 +174,85 @@ class Product extends CI_Controller{
     $this->session->set_userdata('sear', null);
 
     echo base_url() . "Product/Home";
+  }
+
+  function UpdateImage()
+  {
+    $config['upload_path']  = './resources/img/producto/';
+    $config['allowed_types'] = 'gif|jpg|png|jpeg';
+    $config['max_size'] = 1000;
+
+    $this->load->library('upload', $config);
+
+    if($this->upload->do_upload('imagefile'))
+    {
+      $data = array('upload_data' => $this->upload->data());
+      $datos['nombre'] =  $data['upload_data']['file_name'];
+      $datos['id'] = $this->input->post('id');
+
+      $bool = $this->Product_model->UpdateImage($datos);
+
+      if($bool)
+      {
+          echo base_url() . "resources/img/producto/" . $datos['nombre'];
+      }
+    }
+    else
+    {
+      echo "Error al subir la imagen";
+    }
+  }
+
+  function Insert()
+  {
+    $post = $this->input->post();
+
+    $data['codigo'] = $post['codigo'];
+    $data['nombre'] = $post['nombre'];
+    $data['estado'] = $post['estado'];
+    $data['precio'] = $post['precio'];
+
+    $bool = $this->Product_model->Insert($data);
+
+    if($bool)
+        echo "Registro insertado con exito!";
+    else
+      echo "Error al registrar, intente mas tarde";
+
+  }
+
+  function Search_Id()
+  {
+    $post = $this->input->post();
+
+    $id = $post['id'];
+
+    $info = $this->Product_model->Search_Id($id);
+
+    if($info != null)
+    {
+      $data = array('imagen' => base_url() . "resources/img/producto/" . $info->img,
+                             'estado' => $info->status_producto,
+                             'codigo' => $info->codigo_producto,
+                             'precio' => $info->precio_producto,
+                             'nombre' => $info->nombre_producto
+
+                           );
+
+      $json = json_encode($data);
+
+      echo $json;
+    }
+  }
+
+  function Update()
+  {
+
+  }
+
+  function Delete()
+  {
+    # code...
   }
 
 }
