@@ -65,7 +65,9 @@ class Home extends CI_Controller{
         $data = array(
           'id' => $info->user_id,
           'user' => $info->user_name,
-          'login' => true
+          'login' => true,
+          'search' => 'all',
+          'sear' => null
         );
 
         $this->session->set_userdata($data);

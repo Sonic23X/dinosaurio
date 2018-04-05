@@ -16,6 +16,8 @@ class Client extends CI_Controller{
     else
     {
       header("Location: ".base_url('Client/Home'));
+      $this->session->unset_userdata('search');
+      $this->session->set_userdata('search', 'all');
     }
   }
 

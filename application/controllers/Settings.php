@@ -11,10 +11,14 @@ class Settings extends CI_Controller{
 
   function Index()
   {
+    $this->session->unset_userdata('search');
+    $this->session->set_userdata('search', 'all');
+
     if(!$this->session->userdata('login'))
       header("Location: ".base_url('Home/Login'));
     else
     {
+
       $info = $this->Settings_model->Select();
       $sym =  $this->Settings_model->Symbols();
 

@@ -1,11 +1,20 @@
+
+#cartel
+{
+  background-color: white;
+  font-size: 20px;
+}
+
 section
 {
   margin-left: 2%;
   margin-top: 1%;
   margin-right: 2%;
   width: 20%;
-  padding-bottom: 40%;
-  background-color: rgb(213, 125, 133);
+  padding-bottom: 20%;
+  border-style: solid;
+  border-radius: 10px;
+  background-color: #318680;
 }
 
 aside
@@ -19,10 +28,28 @@ section, aside
  display: inline-block;
 }
 
+.input-group
+{
+  margin-top: 15%;
+}
+
+#te
+{
+  font-size: 40px;
+  color: rgb(182, 244, 151);
+}
+
+#opciones
+{
+  color: rgb(182, 244, 151);
+  margin-left: 20%;
+  font-size: 20px;
+}
+
 .target
 {
   margin-top: 2%;
-  margin-right: 3%;
+  margin-right: 1%;
   background-color: white;
   width: 30%;
 }
@@ -70,14 +97,13 @@ section, aside
 .imagen
 {
   width: 49%;
-  height: 200px;
+  height: 180px;
 }
 
 .img
 {
   margin-top: 25px;
-  width: 36px;
-  height: 36px;
+  margin-left: 25px;
 }
 
 .desc
