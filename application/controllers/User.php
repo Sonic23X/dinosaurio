@@ -70,7 +70,13 @@ class User extends CI_Controller{
 
   function Insert()
   {
+    $post = $this->input->post();
+    $bool = $this->User_model->Insert($post);
 
+    if($bool)
+      echo "true";
+    else
+      echo "false";
   }
 
   function Update()

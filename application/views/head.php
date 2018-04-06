@@ -39,6 +39,12 @@
       <link href="<?=base_url()?>resources/css/product.css" rel="stylesheet">
         <?php
       }
+      if($cliente)
+      {
+        ?>
+      <script type="text/javascript" src="<?= base_url() ?>resources/js/client.js"></script>
+        <?php
+      }
     ?>
     <title><?= $title ?></title>
   </head>
