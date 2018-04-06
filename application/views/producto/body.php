@@ -104,7 +104,8 @@
             </div>
 
             <div class="desc">
-              <a class="nom_pro" value="<?= $fila->id_producto ?>" href="#detales" data-toggle="modal"><?= $fila->nombre_producto  ?></a>
+              <a class="nom_pro" data-backdrop="static" data-keyboard="false"
+              value="<?= $fila->id_producto ?>" href="#detales" data-toggle="modal"><?= $fila->nombre_producto  ?></a>
               <br>
               <span class="price" >Precio: $<?= $fila->precio_producto ?></span>
               <br>

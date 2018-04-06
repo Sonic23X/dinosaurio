@@ -66,8 +66,14 @@ class Product_model extends CI_Model{
   {
     if($value != null)
     {
+      $SQL = "UPDATE products SET codigo_producto='". $value['codigo']  ."' , nombre_producto= '". $value['nombre'] . "', "
+      . "status_producto=" . $value['estado'] . ", precio_producto=" . $value['precio']
+      ." WHERE id_producto = ". $value['id'] ."";
 
+      if($this->db->query($SQL))
+        return true;
     }
+    return false;
   }
 
   public function UpdateImage($value = null)
@@ -85,8 +91,11 @@ class Product_model extends CI_Model{
   {
     if($value != null)
     {
-
+      $SQL = "DELETE FROM products WHERE id_producto = " . $value['id'] ."";
+      if($this->db->query($SQL))
+        return true;
     }
+    return false;
   }
 
 }

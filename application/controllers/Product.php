@@ -247,12 +247,30 @@ class Product extends CI_Controller{
 
   function Update()
   {
+    $data['id'] = $this->input->post('id');
+    $data['codigo'] = $this->input->post('codigo');
+    $data['nombre'] = $this->input->post('nombre');
+    $data['estado'] = $this->input->post('estado');
+    $data['precio'] = $this->input->post('precio');
 
+    $bool = $this->Product_model->Update($data);
+
+    if($bool)
+      echo "true";
+    else
+      echo "false";
   }
 
   function Delete()
   {
-    # code...
+    $data['id'] = $this->input->post('id');
+
+    $bool = $this->Product_model->Delete($data);
+
+    if($bool)
+      echo "true";
+    else
+      echo "false";
   }
 
 }
