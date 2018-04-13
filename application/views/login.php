@@ -9,7 +9,7 @@
         <input type="password" id="pass" class="form-control inputs" placeholder="Contraseña">
         <br>
         <br>
-        <input type="submit" class="form-control btn btn-success btn-base">
+        <input type="submit" class="form-control btn btn-base">
 
       </form>
     </div>

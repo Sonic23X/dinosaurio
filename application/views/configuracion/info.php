@@ -9,7 +9,7 @@
                 <div class="panel-body">
                 <div class="row">
 
-                  <div class="col-md-3 col-lg-3 " align="center">
+                  <div class="col-xs-9 col-sm-9 col-md-3 col-lg-3  " align="center">
                     <div id="load_img">
                       <img id="imagen_logo" class="img-responsive" src="<?= base_url() ?>resources/img/<?= $logo_url ?>" alt="Logo">
                     </div>

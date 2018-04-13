@@ -29,17 +29,20 @@ body{
   background-color: #b19369;
 }
 .btn-base{
-  background-color: #C6A16B;
-  border-color:#ad8e5f;
-  box-shadow:  0px 0.5px 0.5px 1px #ad8e5f;
-  color: #090908;
+  background-color: #4d3d30;
+  border-color:#473b31;
+  box-shadow:  0px 0.5px 0.5px 1px #473b31;
+  color: #E1FBB2;
   width: auto;
 }
-.btn-base:hover{
+.btn-base:hover, .btn-base:focus{
   background-color: #4A3B3B;
   border-color: #3d3333;
   color: #f4f5f1;
   box-shadow:  0px 0.5px 0.5px 1px #3d3333;
+}
+.btn-base:active{
+  border-color: #f0d692;
 }
 .titulo{
   background-color: #399892;

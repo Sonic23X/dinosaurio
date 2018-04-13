@@ -23,7 +23,7 @@
                 </div>
               </div>
               <div class="panel-footer text-center">
-                <button type="submit" class="btn btn-sm btn-success" id="updatesettings"><i class="glyphicon glyphicon-refresh"></i> Actualizar datos</button>
+                <button type="submit" class="btn btn-sm  btn-base" id="updatesettings"><i class="glyphicon glyphicon-refresh"></i> Actualizar datos</button>
               </div>
             </div>
           </div>
