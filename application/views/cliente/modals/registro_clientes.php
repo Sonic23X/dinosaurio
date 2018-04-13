@@ -7,7 +7,6 @@
           </div>
           <div class="modal-body">
           <form class="form-horizontal" method="post" id="guardar_cliente" name="guardar_cliente">
-          <div id="resultados_ajax"></div>
             <div class="form-group">
             <label for="nombre" class="col-sm-3 control-label">Nombre</label>
             <div class="col-sm-8">
@@ -41,15 +40,11 @@
             <label for="estado" class="col-sm-3 control-label">Estado</label>
             <div class="col-sm-8">
              <select class="form-control" id="estado" name="estado" required>
-              <option value="">-- Selecciona estado --</option>
               <option value="1" selected>Activo</option>
               <option value="0">Inactivo</option>
               </select>
             </div>
             </div>
-
-
-
 
           </div>
           <div class="modal-footer">

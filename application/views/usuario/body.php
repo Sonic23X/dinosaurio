@@ -49,10 +49,10 @@
 
                       <tr>
                         <td><?= $fila->user_id ?></td>
-            						<td><?= $fila->firstname . " " . $fila->lastname; ?></td>
-            						<td><?= $fila->user_name ?></td>
-            						<td><?= $fila->user_email ?></td>
-            						<td><?= $fila->date_added;?></td>
+                        <td><?= $fila->firstname . " " . $fila->lastname; ?></td>
+                        <td><?= $fila->user_name ?></td>
+                        <td><?= $fila->user_email ?></td>
+                        <td><?= $fila->date_added;?></td>
 
             					   <td >
                            <span class="pull-right">

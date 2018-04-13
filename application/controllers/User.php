@@ -17,6 +17,8 @@ class User extends CI_Controller{
     else
     {
       header("Location: ".base_url('User/Home'));
+      $this->session->unset_userdata('search');
+      $this->session->set_userdata('search', 'all');
     }
   }
 
@@ -68,7 +70,13 @@ class User extends CI_Controller{
 
   function Insert()
   {
+    $post = $this->input->post();
+    $bool = $this->User_model->Insert($post);
 
+    if($bool)
+      echo "true";
+    else
+      echo "false";
   }
 
   function Update()

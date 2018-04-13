@@ -11,7 +11,7 @@
 
                   <div class="col-xs-9 col-sm-9 col-md-3 col-lg-3  " align="center">
                     <div id="load_img">
-                      <img id="imagen_logo" class="img-responsive" src="<?= base_url() ?>resources/img/<?= $logo_url ?>" alt="Logo">
+                      <img id="imagen_logo" class="img-responsive" src="<?= base_url() ?>resources/img/logo/<?= $logo_url ?>" alt="Logo">
                     </div>
                     <br>
                     <div class="row">

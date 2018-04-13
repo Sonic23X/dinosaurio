@@ -14,8 +14,7 @@ function get_user_id(id)
 
 function eliminar(id)
 {
-  var q= $("#q").val();
-  if (confirm("Realmente deseas eliminar el cliente"))
+  if (confirm("Realmente deseas eliminar al usuario?"))
   {
 		$.ajax({
         type: "POST",
@@ -33,3 +32,45 @@ function eliminar(id)
 		}
 
 }
+
+$(document).ready(function() {
+
+  $('#guardar_datos').click(function(event) {
+    event.preventDefault();
+
+    var nombre = $('#firstname').val();
+    var apellido = $('#lastname').val();
+    var usuario = $('#user_name').val();
+    var email = $('#user_email').val();
+    var pass = $('#user_password_new').val();
+    var r_pass = $('#user_password_repeat').val();
+
+    if(pass == r_pass)
+    {
+      $.ajax({
+        url: 'http://localhost/dinosaurio/User/Insert',
+        type: 'post',
+        data: "nombre=" + nombre + "&apellido=" + apellido + "&usuario=" + usuario + "&email=" + email + "&pass=" + pass,
+        success: function(response)
+        {
+          if(response == "true")
+          {
+            alert("Registro completado!");
+            $('#myModal').modal('toggle');
+            location.reload();
+          }
+          else
+          {
+            alert("Error, intentelo mas tarde");
+            $('#myModal').modal('toggle');
+          }
+        }
+      });
+    }
+    else
+    {
+      alert("Las contraseñas no coinciden, por favor, verifiquelas");
+    }
+  });
+
+});

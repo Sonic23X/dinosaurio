@@ -6,7 +6,7 @@ class User_model extends CI_Model{
   public function __construct()
   {
     parent::__construct();
-    //Codeigniter : Write Less Do More
+    $this->load->library('encryption');
   }
 
   function Search($person = null)
@@ -37,7 +37,11 @@ class User_model extends CI_Model{
   {
     if($datos != null)
     {
-
+      $pass = $this->encryption->encrypt($datos['pass']);
+      $SQL = "INSERT INTO users(firstname, lastname, user_name, user_password_hash, user_email, date_added) VALUES " .
+       "('".$datos['nombre']."', '".$datos['apellido']."', '".$datos['usuario']."', '".$pass."', '".$datos['email']."', curdate())";
+       if($this->db->query($SQL))
+        return true;
     }
     return false;
   }
@@ -86,6 +90,11 @@ class User_model extends CI_Model{
         return true;
     }
     return false;
+  }
+
+  public function Search_User()
+  {
+
   }
 
 }

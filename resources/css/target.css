@@ -1,0 +1,123 @@
+
+#cartel
+{
+  background-color: white;
+  font-size: 20px;
+}
+
+section
+{
+  margin-left: 2%;
+  margin-top: 1%;
+  margin-right: 2%;
+  width: 20%;
+  padding-bottom: 20%;
+  border-style: solid;
+  border-radius: 10px;
+  background-color: #318680;
+}
+
+aside
+{
+  vertical-align: top;
+  width: 75%;
+}
+
+section, aside
+{
+ display: inline-block;
+}
+
+.input-group
+{
+  margin-top: 15%;
+}
+
+#te
+{
+  font-size: 40px;
+  color: rgb(182, 244, 151);
+}
+
+#opciones
+{
+  color: rgb(182, 244, 151);
+  margin-left: 20%;
+  font-size: 20px;
+}
+
+.target
+{
+  margin-top: 2%;
+  margin-right: 1%;
+  background-color: white;
+  width: 30%;
+}
+
+.target, .target
+{
+  display: inline-block;
+}
+
+.target, .target, .target
+{
+  display: inline-block;
+}
+
+.nom_pro
+{
+  color: black;
+  text-decoration: none;
+  font-size: 32px;
+  border-bottom-style: solid;
+  border-bottom-color: blue;
+}
+
+.nom_pro:hover
+{
+  color: black;
+  text-decoration: none;
+}
+
+.price
+{
+  margin-top:2%;
+}
+
+.details
+{
+  text-decoration: none;
+}
+
+.details:hover
+{
+  text-decoration: none;
+}
+
+.imagen
+{
+  width: 49%;
+  height: 180px;
+}
+
+.img
+{
+  margin-top: 25px;
+  margin-left: 25px;
+}
+
+.desc
+{
+  text-align: center;
+  width: 49%;
+}
+
+.imagen, .desc
+{
+  display:inline-block;
+}
+
+.prod
+{
+  width: 30px;
+}

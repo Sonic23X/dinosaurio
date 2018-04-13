@@ -16,6 +16,8 @@ class Client extends CI_Controller{
     else
     {
       header("Location: ".base_url('Client/Home'));
+      $this->session->unset_userdata('search');
+      $this->session->set_userdata('search', 'all');
     }
   }
 
@@ -62,6 +64,47 @@ class Client extends CI_Controller{
     $this->load->view('cliente/modals/editar_clientes');
 
     $this->load->view('footer');
+  }
+
+  function Insert()
+  {
+    $post = $this->input->post();
+
+    $bool = $this->Client_model->Insert($post);
+
+    if($bool)
+      echo "true";
+    else
+      echo "false";
+  }
+
+  function Update()
+  {
+    $post = $this->input->post();
+
+    $bool = $this->Client_model->Update($post);
+
+    if($bool)
+      echo "true";
+    else
+      echo "false";
+  }
+
+  function Delete()
+  {
+    $post = $this->input->post();
+
+    $bool = $this->Client_model->Delete($post);
+
+    if($bool)
+      echo "true";
+    else
+      echo "false";
+  }
+
+  function Search()
+  {
+    # code...
   }
 
 }
