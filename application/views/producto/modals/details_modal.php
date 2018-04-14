@@ -35,7 +35,7 @@
                 <div class="form-group">
 									<label for="codigo" class="col-sm-3 control-label">Código</label>
 									<div class="col-sm-8">
-										 <input type="text" class="form-control" id="codigo" name="codigo" placeholder="Código del producto" required disabled>
+										 <input type="number" class="form-control" id="codigo" name="codigo" min=1 max=999 placeholder="Código del producto" required disabled>
 									</div>
 								</div>
                 <br>
@@ -44,7 +44,7 @@
 								<div class="form-group">
 									<label for="nombre" class="col-sm-3 control-label">Nombre</label>
 									<div class="col-sm-8">
-										<textarea class="form-control" id="nombre" name="nombre" placeholder="Nombre del producto" required maxlength="255" disabled ></textarea>
+										<textarea class="form-control" id="nombre" name="nombre" placeholder="Nombre del producto" required maxlength="20" disabled ></textarea>
 									</div>
 								</div>
                 <br>
@@ -65,7 +65,7 @@
 								<div class="form-group">
 									<label for="precio" class="col-sm-3 control-label">Precio</label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control" id="precio" name="precio" placeholder="Precio de venta del producto" disabled required pattern="^[0-9]{1,5}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="8">
+										<input type="number" class="form-control" id="precio" name="precio" min=1 max=99999 placeholder="Precio de venta del producto" disabled required pattern="^[0-9]{1,5}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="8">
 									</div>
 								</div>
 
@@ -155,7 +155,7 @@
 
 					if(pregunta == true)
 					{
-						var id = $('#id').val();						
+						var id = $('#id').val();
 						$.ajax({
 							url: '<?= base_url() ?>Product/Delete',
 							type: 'post',

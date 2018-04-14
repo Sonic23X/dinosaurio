@@ -97,4 +97,15 @@ class User_model extends CI_Model{
 
   }
 
+  public function GetUsers()
+  {
+    $SQL = "SELECT * FROM users";
+    $result = $this->db->query($SQL);
+
+    if($result->num_rows() > 0)
+      return $result;
+    else
+      null;
+  }
+
 }

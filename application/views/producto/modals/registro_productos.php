@@ -12,21 +12,21 @@
 								<div class="form-group">
 									<label for="codigo" class="col-sm-3 control-label">Código</label>
 									<div class="col-sm-8">
-										 <input type="text" class="form-control" id="codigo" name="codigo" placeholder="Código del producto" required>
+										 <input type="number" min=1 max=999 class="form-control" id="n_codigo" name="codigo" placeholder="Código del producto" required>
 									</div>
 								</div>
 
 								<div class="form-group">
 									<label for="nombre" class="col-sm-3 control-label">Nombre</label>
 									<div class="col-sm-8">
-										<textarea class="form-control" id="nombre" name="nombre" placeholder="Nombre del producto" required maxlength="255" ></textarea>
+										<textarea class="form-control" id="n_nombre" name="nombre" placeholder="Nombre del producto" required maxlength="20" ></textarea>
 									</div>
 								</div>
 
 								<div class="form-group">
 									<label for="estado" class="col-sm-3 control-label">Estado</label>
 									<div class="col-sm-8">
-										<select class="form-control" id="estado" name="estado" required>
+										<select class="form-control" id="n_estado" name="estado" required>
 											<option value="">-- Selecciona estado --</option>
 											<option value="1" selected>Activo</option>
 											<option value="0">Inactivo</option>
@@ -37,7 +37,7 @@
 								<div class="form-group">
 									<label for="precio" class="col-sm-3 control-label">Precio</label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control" id="precio" name="precio" placeholder="Precio de venta del producto" required pattern="^[0-9]{1,5}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="8">
+										<input type="number" min=1 max=99999 class="form-control" id="n_precio" name="precio" placeholder="Precio de venta del producto" required pattern="^[0-9]{1,5}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales">
 									</div>
 								</div>
 
@@ -58,10 +58,10 @@
 
 					event.preventDefault();
 
-					var codigo = $('#codigo').val();
-					var nombre = $('#nombre').val();
-					var estado = $('#estado').val();
-					var precio = $('#precio').val();
+					var codigo = $('#n_codigo').val();
+					var nombre = $('#n_nombre').val();
+					var estado = $('#n_estado').val();
+					var precio = $('#n_precio').val();
 
 					$.ajax({
 						url: '<?= base_url() ?>Product/Insert',
