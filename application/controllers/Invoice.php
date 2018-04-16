@@ -9,6 +9,7 @@ class Invoice extends CI_Controller{
     $this->load->model('Invoice_model');
     $this->load->model('User_model');
     $this->load->model('Client_model');
+    $this->load->model('Settings_model');
   }
 
   function Index()
@@ -86,11 +87,54 @@ class Invoice extends CI_Controller{
 
     $this->load->view('factura/nueva', $info);
 
+    //modales
+    $this->load->view('cliente/modals/registro_clientes');
+    $this->load->view('factura/modals/products');
+
     $this->load->view('footer');
   }
 
-  function Imprimir()
+  function Imprimir($id)
   {
+
+    $id_factura = intval($id);
+    $bool = $this->Invoice_model->SelectCount($id_factura);
+    if($bool)
+    {
+      echo "<script>alert('Factura no encontrada')</script>";
+    	echo "<script>window.close();</script>";
+    }
+    else
+    {
+      $datos = $this->Invoice_model->SelectRow($id_factura);
+      $datos_empresa = $this->Settings_model->Select();
+      $cliente = $this->Client_model->GetClientsID($datos->id_cliente);
+      $vendedor = $this->User_model->Person($datos->id_vendedor);
+      $url = "D:/xampp/htdocs/dinosaurio/resources/HTML2PDF/html2pdf.class.php";
+      require_once($url);
+
+      ob_start();
+      $this->load->view('factura/pdf/encabezado1', $datos_empresa);
+      $this->load->view('factura/pdf/encabezado2', $datos);
+      $this->load->view('factura/pdf/cliente', $cliente);
+      $this->load->view('factura/pdf/vendedor', $vendedor);
+      $this->load->view('factura/pdf/pago', $datos);
+      $this->load->view('factura/pdf/productos', $datos_empresa);
+      $content = ob_get_clean();
+
+      try
+      {
+          $html2pdf = new HTML2PDF('P', 'LETTER', 'es', true, 'UTF-8', array(0, 0, 0, 0));
+          $html2pdf->pdf->SetDisplayMode('fullpage');
+          $html2pdf->writeHTML($content);
+          $html2pdf->Output('Factura.pdf');
+      }
+      catch(HTML2PDF_exception $e) {
+          echo $e;
+          exit;
+      }
+
+    }
 
   }
 
@@ -101,12 +145,32 @@ class Invoice extends CI_Controller{
 
   function Update()
   {
-    # code...
+
   }
 
   function Delete()
   {
-    # code...
+    $post = $this->input->post();
+    $fac = $post['id'];
+    $bool = $this->Invoice_model->Delete($fac);
+    if($bool)
+      echo "Factura eliminada";
+    else
+      echo "Error al eliminar la factura";
+
+  }
+
+  function SearchClient()
+  {
+    $post = $this->input->post();
+
+    $datos = $this->Client_model->GetClientsID($post['id']);
+    if($datos != null)
+    {
+      echo $datos->telefono_cliente . ";" . $datos->email_cliente;
+    }
+    else
+      echo "Error, intente más tarde";
   }
 
 }

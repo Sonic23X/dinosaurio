@@ -9,6 +9,16 @@ class User_model extends CI_Model{
     $this->load->library('encryption');
   }
 
+  public function Person($id = null)
+  {
+    $SQL = "select * from users where user_id='$id'";
+    $result = $this->db->query($SQL);
+    if($result->num_rows() > 0)
+      return $result->row();
+    else
+      return null;
+  }
+
   function Search($person = null)
   {
     if($person != null)

@@ -96,3 +96,5 @@
 		</div>
 
 	</div>
+
+	<script type="text/javascript" src="<?= base_url() ?>resources/js/invoice.js"></script>

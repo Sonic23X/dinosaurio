@@ -9,6 +9,7 @@
 				  <label for="nombre_cliente" class="col-md-1 control-label">Cliente</label>
 				  <div class="col-md-3">
 					  <select class="form-control input-sm" id="cliente">
+							<option value="" style="Display: none"></option>
               <?php
               if($clientes != null)
               {
@@ -83,15 +84,71 @@
 				</div>
 			</form>
 
-		<div id="resultados" class='col-md-12' style="margin-top:10px"></div><!-- Carga los datos ajax -->
 		</div>
 	</div>
-		  <div class="row-fluid">
-			<div class="col-md-12">
 
-
-
+  <div class="row-fluid">
+		<div class="col-md-12">
 
 			</div>
-		 </div>
+		</div>
+
 	</div>
+
+	<script type="text/javascript">
+
+		$(document).ready(function() {
+
+			$('#cliente').change(function(event) {
+
+				var id = $('#cliente').val();
+
+				$.ajax({
+					url: '<?= base_url() ?>Invoice/SearchClient',
+					type: 'POST',
+					data: {id: id},
+					success: function(response)
+					{
+						var datos = response.split(';');
+						$('#tel1').val(datos[0]);
+						$('#mail').val(datos[1]);
+					}
+				});
+
+			});
+
+			$('#guardar_cliente').submit(function(event) {
+
+		    event.preventDefault();
+
+		    var nombre =$('#nombre').val();
+		    var telefono =$('#telefono').val();
+		    var email =$('#email').val();
+		    var direccion =$('#direccion').val();
+		    var estado =$('#estado').val();
+
+		    $.ajax({
+		      url: 'http://localhost/dinosaurio/Client/Insert',
+		      type: 'post',
+		      data: 'nombre=' + nombre + '&telefono=' + telefono + '&email=' + email + '&direccion=' + direccion + '&estado=' + estado,
+		      success: function(response)
+		      {
+		        if(response == "true")
+		        {
+		          alert("registro completado!");
+		          $('#nuevoCliente').modal('toggle');
+		          location.reload();
+		        }
+		        else
+		        {
+		          alert("Error, intente de nuevo mas tarde");
+		          $('#nuevoCliente').modal('toggle');
+		        }
+		      }
+		    });
+
+		  });
+
+		});
+
+	</script>

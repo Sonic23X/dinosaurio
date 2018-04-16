@@ -12,6 +12,7 @@
     <script type="text/javascript" src="<?= base_url() ?>vendor/components/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="<?= base_url() ?>vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="<?= base_url() ?>vendor/twbs/bootstrap/dist/js/bootstrap-filestyle.js"></script>
+    <script type="text/javascript" src="<?= base_url() ?>resources/js/VentanaCentrada.js"></script>
     <?php
       if($login)
       {

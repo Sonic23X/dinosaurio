@@ -20,6 +20,17 @@ class Client_model extends CI_Model{
       null;
   }
 
+  public function GetClientsID($id = null)
+  {
+    $SQL = "SELECT * FROM clientes WHERE id_cliente = " . $id . "";
+    $result = $this->db->query($SQL);
+
+    if($result->num_rows() > 0)
+      return $result->row();
+    else
+      null;
+  }
+
   public function GetPaginacion($numero_por_pagina)
   {
     return $this->db->get("clientes",$numero_por_pagina,$this->uri->segment(3));

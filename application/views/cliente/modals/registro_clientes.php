@@ -10,13 +10,13 @@
             <div class="form-group">
             <label for="nombre" class="col-sm-3 control-label">Nombre</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" id="nombre" name="nombre" required>
+              <input type="text" class="form-control" id="nombre" name="nombre" required maxlength="40">
             </div>
             </div>
             <div class="form-group">
             <label for="telefono" class="col-sm-3 control-label">Teléfono</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" id="telefono" name="telefono" >
+              <input type="number" class="form-control" min=1000000000 max=9999999999 id="telefono" name="telefono" >
             </div>
             </div>
 
